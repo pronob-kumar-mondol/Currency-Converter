@@ -4,8 +4,10 @@ import com.example.currencyconverter.data.CurrencyApi
 import com.example.currencyconverter.main.CurrencyRepository
 import com.example.currencyconverter.main.DefaultCurrencyRepository
 import com.example.currencyconverter.util.DispacherProvider
+import dagger.Component
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.DefineComponent
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
@@ -22,7 +24,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCurrencyApi():CurrencyApi= Retrofit.Builder()
+    fun provideCurrencyApi(): CurrencyApi = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -30,11 +32,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCurrencyRepository(api:CurrencyApi): CurrencyRepository = DefaultCurrencyRepository(api)
+    fun provideCurrencyRepository(api: CurrencyApi): CurrencyRepository =
+        DefaultCurrencyRepository(api)
 
     @Singleton
     @Provides
-    fun provideDispacher():DispacherProvider=object :DispacherProvider{
+    fun provideDispatcher(): DispacherProvider = object : DispacherProvider {
         override val main: CoroutineDispatcher
             get() = Dispatchers.Main
         override val io: CoroutineDispatcher
@@ -43,6 +46,5 @@ object AppModule {
             get() = Dispatchers.Default
         override val unconfined: CoroutineDispatcher
             get() = Dispatchers.Unconfined
-
     }
 }

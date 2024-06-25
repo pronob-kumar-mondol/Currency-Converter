@@ -6,9 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface CurrencyApi {
-
-    @GET("/fc8ab3c17c854f10c745ac16/latest/USD")
+    @GET("fc8ab3c17c854f10c745ac16/latest/USD")
     suspend fun getRates(
-        @Query("base_code") base:String
+        @Query("base_code") base: String
     ): Response<CurrencyResponse>
 }

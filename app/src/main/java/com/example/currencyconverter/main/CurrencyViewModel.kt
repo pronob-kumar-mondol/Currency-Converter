@@ -1,5 +1,6 @@
 package com.example.currencyconverter.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.currencyconverter.data.models.ConversionRates
@@ -10,7 +11,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.round
-import kotlin.time.times
 
 
 class CurrencyViewModel @Inject constructor(
@@ -47,16 +47,19 @@ class CurrencyViewModel @Inject constructor(
 
                 is Response.eror->{
                     _conversion.value=CurrencyEvent.Failure(ratesResponse.massage!!)
+                    Log.d("Error","Unexpected error1234")
                 }
                 is Response.success->{
                     val rates= ratesResponse.data!!.conversionRates
                     val rate=getRateForCurrency(toCurrency, rates) as Double
-
+                    Log.d("Success", "$fromAmmount $fromCurrency = $rate $toCurrency")
                     if (rate==null){
                         _conversion.value=CurrencyEvent.Failure("Unexpected error")
+                        Log.d("Error","Unexpected error2")
                     }else{
                         val convertedCurrency= round(fromAmmount * rate * 100)/100
                         _conversion.value=CurrencyEvent.Success("$fromAmmount $fromCurrency = $convertedCurrency $toCurrency")
+                        Log.d("Success", "$fromAmmount $fromCurrency = $convertedCurrency $toCurrency")
                     }
                 }
 

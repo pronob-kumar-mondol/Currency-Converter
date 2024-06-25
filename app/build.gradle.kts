@@ -56,8 +56,7 @@ dependencies {
     //Dagger - Hilt
     implementation (libs.google.hilt.android)
     kapt (libs.hilt.android.compiler)
-    implementation (libs.androidx.hilt.lifecycle.viewmodel)
-    kapt (libs.androidx.hilt.compiler)
+    kapt (libs.hilt.android.compiler)
 
     // Activity KTX for viewModels()
     implementation (libs.androidx.activity.ktx)
@@ -69,7 +68,7 @@ dependencies {
     implementation (libs.androidx.lifecycle.extensions)
     implementation (libs.androidx.lifecycle.livedata.ktx)
     implementation (libs.androidx.lifecycle.runtime.ktx)
-    implementation (libs.androidx.lifecycle.runtime.ktx.v282)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v220)
 
     // Retrofit
     implementation (libs.retrofit)
@@ -82,5 +81,5 @@ dependencies {
 
     // Coroutine Lifecycle Scopes
     implementation (libs.androidx.lifecycle.viewmodel.ktx.v220)
-    implementation (libs.androidx.lifecycle.runtime.ktx.v282)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v220)
 }
