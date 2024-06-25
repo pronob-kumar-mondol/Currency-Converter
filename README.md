@@ -3,7 +3,9 @@
 ## Overview
 Currency Converter is an Android application that converts currency rates using the ExchangeRate API. Built with Kotlin, this app demonstrates the use of Retrofit for API calls, Dagger-Hilt for dependency injection, and MVVM architecture.
 
-![App Demo](https://github.com/pronob-kumar-mondol/Currency-Converter/raw/main/For%20gif.gif)
+<div align="center">
+    <img src="https://github.com/pronob-kumar-mondol/Currency-Converter/raw/main/For%20gif.gif" alt="App Demo"/>
+</div>
 
 
 ## Features
