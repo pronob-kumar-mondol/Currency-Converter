@@ -83,9 +83,6 @@ Currency Converter is an Android application that converts currency rates using 
     ```
 6. **Create a Pull Request**
 
-## License
-This project is licensed under the MIT License.
-
 ## Contact
 - **Author:** Pronob Kumar Mondol
 - **Email:** pronob2055@gmail.com
